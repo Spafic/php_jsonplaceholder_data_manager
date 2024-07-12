@@ -1,0 +1,175 @@
+.navbar-brand {
+    color: #ffffff !important;
+    /* White color */
+    transform: rotate(-20deg);
+    /* Rotates the element 30 degrees */
+    text-shadow: 0 0 8px #fff, 0 0 10px #fff, 0 0 15px #ff2d95, 0 0 20px #ff2d95;
+    /* Shiny effect */
+    font-size: x-large;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    /* Initial color */
+    font-weight: bold;
+    /* Make it bold by default */
+    margin: 0 40px;
+    /* Adds margin around the links */
+    position: relative;
+    /* Needed for the pseudo-element */
+    padding: 10px;
+    /* Add some padding for visual space */
+    overflow: hidden;
+    /* Ensures the pseudo-element does not overflow */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FF0000;
+    /*  RED for visibility */
+    animation: none;
+    /* Reset the animation */
+    transition: transform 0.5s ease;
+    /* Smooth transition for the transform */
+    transform: scaleX(0);
+    /* Scale the element to 0 to hide it initially */
+    transform-origin: bottom left;
+    /* Start the transformation from the bottom left */
+}
+
+.nav-link:hover::after {
+    animation: slideBorder 2s infinite;
+    /* Apply the border slide animation */
+}
+
+@keyframes slideBorder {
+
+    0%,
+    100% {
+        transform: scaleX(0);
+        transform-origin: bottom left;
+    }
+
+    25% {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: bottom right;
+    }
+
+    75% {
+        transform: scaleY(1);
+        transform-origin: top right;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: top right;
+    }
+}
+
+body {
+    margin: 0;
+    /* Adds space around the content */
+    padding-top: 60px;
+    /* Adjust based on the height of your navigation bar */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+    background: #f0f0f0;
+    /* Example background color */
+    color: #333;
+    /* Example text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Example font stack */
+    font-size: 16px;
+    /* Example font size */
+    text-align: center;
+    /* Centers the text */
+}
+
+.nav-bar {
+    position: fixed;
+    /* Fixes the navigation bar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Ensures the navigation bar stretches across the screen */
+    height: 60px;
+    /* Adjust based on your design */
+    background-color: #333;
+    /* Example background color */
+    z-index: 1000;
+    /* Ensures the navigation bar stays above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: adds a shadow for depth */
+}
+
+table {
+    width: 100%;
+    /* Ensures the table stretches across the screen */
+    border-collapse: collapse;
+    /* Removes space between borders */
+    margin-top: 30px;
+    /* Adjust based on the height of your navigation bar to prevent overlap */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Adds a subtle shadow for depth */
+    align-items: center;
+
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    /* Adds a light border around table cells */
+    text-align: left;
+    /* Aligns text to the left; adjust as needed */
+    padding: 8px;
+    /* Adds padding inside table cells for spacing */
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    /* Adds a background color to the table headers for distinction */
+    color: #000000;
+    /* Text color for headers */
+    font-size: 20px;
+    /* Font size for headers */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* Font stack for headers */
+    font-weight: bold;
+    letter-spacing: .6rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Adds a zebra-striping effect to the table rows */
+}
+@keyframes slideTextToOneTime {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+h1 {
+    text-align: center;
+    text-decoration: none; /* Removes the wavy underline */
+    color: #5C58BC; /* Darker text color for contrast */
+    font-size: 2.5rem; /* Larger font size for prominence */
+    overflow: hidden; /* Ensures the sliding text is clipped to the container's bounds */
+    white-space: nowrap; /* Prevents the text from wrapping */
+    display: block; /* Ensures the h1 behaves like a block for animation */
+    width: 100%; /* Full width to center the text properly */
+    animation: slideTextToOneTime 3s ease-out forwards; /* Applies the sliding animation */
+}
